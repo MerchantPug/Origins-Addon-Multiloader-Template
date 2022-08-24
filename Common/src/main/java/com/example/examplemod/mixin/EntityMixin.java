@@ -11,8 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EntityMixin {
     @Inject(method = "isVisuallySwimming", at = @At("RETURN"))
     private void examplemod$forceCrawl(CallbackInfoReturnable<Boolean> cir) {
-        if ((Object)this instanceof LivingEntity) {
+        /* if ((Object)this instanceof LivingEntity) {
             cir.setReturnValue(true);
         }
+         */
     }
 }
