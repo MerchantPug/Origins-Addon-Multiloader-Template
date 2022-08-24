@@ -8,6 +8,33 @@ archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
 
 repositories {
     maven {
+        name = "Ladysnake Libs"
+        url = 'https://ladysnake.jfrog.io/artifactory/mods'
+    }
+
+    maven {
+        url = 'https://maven.cafeteria.dev'
+        content {
+            includeGroup 'net.adriantodt.fabricmc'
+        }
+    }
+
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release"
+        content {
+            includeGroup "com.jamieswhiteshirt"
+        }
+    }
+
+    maven {
+        url "https://maven.shedaniel.me/"
+    }
+
+    maven {
+        url "https://maven.terraformersmc.com/"
+    }
+
+    maven {
         name = "JitPack"
         url = 'https://jitpack.io'
     }
@@ -19,6 +46,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.github.apace100:origins-fabric:${origins_fabric_version}"
+    modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":Common")
 }

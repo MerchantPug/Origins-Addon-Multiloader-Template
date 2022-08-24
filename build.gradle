@@ -32,60 +32,6 @@ subprojects {
         }
     }
 
-    repositories {
-        maven {
-            name = 'Sponge / Mixin'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-        }
-
-        maven {
-            name = 'BlameJared Maven (CrT / Bookshelf)'
-            url = 'https://maven.blamejared.com'
-        }
-
-        maven {
-            url "https://cursemaven.com"
-            content {
-                includeGroup "curse.maven"
-            }
-        }
-
-        maven { url 'https://maven.theillusivec4.top' }
-
-        maven {
-            name = "Ladysnake Libs"
-            url = 'https://ladysnake.jfrog.io/artifactory/mods'
-        }
-
-        maven {
-            url = 'https://maven.cafeteria.dev'
-            content {
-                includeGroup 'net.adriantodt.fabricmc'
-            }
-        }
-
-        maven {
-            url "https://maven.jamieswhiteshirt.com/libs-release"
-            content {
-                includeGroup "com.jamieswhiteshirt"
-            }
-        }
-
-        maven {
-            url "https://maven.shedaniel.me/"
-        }
-
-        maven {
-            url "https://maven.terraformersmc.com/"
-        }
-        
-        flatDir {
-            dir "$rootDir/libs"
-        }
-
-        mavenCentral()
-    }
-
     tasks.withType(JavaCompile).configureEach {
     
         it.options.encoding = 'UTF-8'

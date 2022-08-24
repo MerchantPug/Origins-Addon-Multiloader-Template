@@ -13,5 +13,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'Origins MultiLoader'
+rootProject.name = 'Origins-MultiLoader'
 include("Common", "Fabric", "Forge")

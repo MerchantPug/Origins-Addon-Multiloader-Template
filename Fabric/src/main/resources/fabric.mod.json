@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "modid",
+    "id": "originsmultiloader",
     "version": "${version}",
   
     "name": "Example Mod",
@@ -23,18 +23,16 @@
       ]
     },
     "mixins": [
-      "modid.mixins.json"
+      "originsmultiloader.mixins.json",
+      "originsmultiloader.fabric.mixins.json"
     ],
   
     "depends": {
       "fabricloader": ">=0.13",
       "fabric": "*",
-      "minecraft": "1.18.x",
+      "minecraft": "1.19.x",
       "origins": ">=1.6.2",
       "java": ">=17"
-    },
-    "suggests": {
-      "another-mod": "*"
     }
   }
   

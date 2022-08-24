@@ -1,5 +1,11 @@
 package com.example.examplemod.platform.services;
 
+import com.example.examplemod.power.data.IPowerData;
+import io.github.apace100.apoli.power.Power;
+import io.github.apace100.apoli.power.factory.PowerFactory;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+
 public interface IPlatformHelper {
 
     /**
@@ -23,4 +29,13 @@ public interface IPlatformHelper {
      * @return True if in a development environment, false otherwise.
      */
     boolean isDevelopmentEnvironment();
+
+    /**
+     * Registers a power type based on name and a power factory.
+     *
+     * @return The registered power
+     */
+    <P extends Power> PowerFactory<P> registerPowerFactory(ResourceLocation id, IPowerData power);
+
+    <P extends Power> boolean hasPower(LivingEntity living, Class<P> powerClass, PowerFactory<P> powerFactory);
 }
