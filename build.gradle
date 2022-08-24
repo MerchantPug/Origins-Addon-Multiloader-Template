@@ -33,9 +33,6 @@ subprojects {
     }
 
     repositories {
-
-        mavenCentral()
-
         maven {
             name = 'Sponge / Mixin'
             url = 'https://repo.spongepowered.org/repository/maven-public/'
@@ -83,8 +80,10 @@ subprojects {
         }
         
         flatDir {
-            dir 'libs'
+            dir "$rootDir/libs"
         }
+
+        mavenCentral()
     }
 
     tasks.withType(JavaCompile).configureEach {
