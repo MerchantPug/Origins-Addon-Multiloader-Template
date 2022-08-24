@@ -9,8 +9,7 @@ This guide will show how to import the MultiLoader Template into IntelliJ IDEA. 
 
 1. Clone or download this repository to your computer.
 2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`.
-3. Add a new 'libs' folder in the base directory. This will contain the Calio Forge and Apoli Forge JARs for use in the build scripts.
-   https://github.com/EdwinMindcraft/origins-architectury/releases
+3. Create a new 'libs' folder in the base directory. Put the Calio Forge and Apoli Forge JARs in this folder, this is for use in the build scripts. You can get these two files from [this page](https://github.com/EdwinMindcraft/origins-architectury/releases).
 4. Open the template's root folder as a new project in IDEA. This is the folder that contains this README file and the gradlew executable.
 5. If your default JVM/JDK is not Java 17 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`and changing the value to a valid Java 17 JVM. You will also need to set the Project SDK to Java 17. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
 6. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Common > Tasks > vanilla gradle > decompile`. Run this task to decompile Minecraft.
