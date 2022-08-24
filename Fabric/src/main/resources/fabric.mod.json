@@ -30,6 +30,7 @@
       "fabricloader": ">=0.13",
       "fabric": "*",
       "minecraft": "1.18.x",
+      "origins": ">=1.6.2",
       "java": ">=17"
     },
     "suggests": {

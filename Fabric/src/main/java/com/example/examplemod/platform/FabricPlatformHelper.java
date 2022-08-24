@@ -7,6 +7,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public String getPlatformName() {
+
         return "Fabric";
     }
 
