@@ -4,6 +4,7 @@
   "package": "com.example.examplemod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "InventoryMixin",
     "LivingEntityMixin"
   ],
   "client": [
@@ -12,4 +13,3 @@
     "defaultRequire": 1
   }
 }
-  

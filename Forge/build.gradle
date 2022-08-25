@@ -97,10 +97,15 @@ sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
     implementation fg.deobf("io.github.edwinmindcraft:calio-forge:${minecraft_version}-${calio_forge_version}")
     implementation fg.deobf("io.github.edwinmindcraft:apoli-forge:${minecraft_version}-${apoli_forge_version}")
     implementation fg.deobf("curse.maven:origins-forge-474438:${origins_forge_fileid}")
     implementation fg.deobf("top.theillusivec4.caelus:caelus-forge:${minecraft_version}-${caelus_version}")
+
+    compileOnly group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
+    annotationProcessor group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
+
     compileOnly project(":Common")
 }
 

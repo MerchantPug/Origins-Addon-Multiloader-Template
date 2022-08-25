@@ -9,7 +9,7 @@ import java.util.function.BiFunction;
 
 public class HoverPowerData implements IPowerData<HoverPower> {
     @Override
-    public BiFunction<PowerType<HoverPower>, LivingEntity, HoverPower> getPowerConstructor(SerializableData.Instance serializableData) {
+    public BiFunction<PowerType<HoverPower>, LivingEntity, HoverPower> getPowerConstructor(SerializableData.Instance data) {
         return HoverPower::new;
     }
 }

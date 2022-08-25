@@ -2,6 +2,7 @@ package com.example.examplemod;
 
 import com.example.examplemod.registry.services.RegistrationProvider;
 import com.example.examplemod.registry.services.RegistryObject;
+import com.google.auto.service.AutoService;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -13,6 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
+@AutoService(RegistrationProvider.Factory.class)
 public class FabricRegistrationFactory implements RegistrationProvider.Factory {
 
     @Override

@@ -1,6 +1,5 @@
 package com.example.examplemod.power.data;
 
-import com.example.examplemod.Constants;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
@@ -16,7 +15,9 @@ public interface IPowerData<P extends Power> {
         return new SerializableData();
     }
 
-    BiFunction<PowerType<P>, LivingEntity, P> getPowerConstructor(SerializableData.Instance serializableData);
+    default BiFunction<PowerType<P>, LivingEntity, P> getPowerConstructor(SerializableData.Instance data) {
+        throw new NullPointerException("");
+    }
 
     default Function<SerializableData.Instance, BiFunction<PowerType<P>, LivingEntity, P>> getPowerConstructorForge() {
         return this::getPowerConstructor;
