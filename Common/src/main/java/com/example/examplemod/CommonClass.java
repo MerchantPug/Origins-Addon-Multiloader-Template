@@ -1,7 +1,7 @@
 package com.example.examplemod;
 
 import com.example.examplemod.platform.Services;
-import com.example.examplemod.registry.ExamplePowers;
+import com.example.examplemod.registry.ExamplePowerFactories;
 
 public class CommonClass {
 
@@ -11,6 +11,6 @@ public class CommonClass {
     public static void init() {
         Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.isDevelopmentEnvironment() ? "development" : "production");
 
-        ExamplePowers.init();
+        ExamplePowerFactories.init();
     }
 }

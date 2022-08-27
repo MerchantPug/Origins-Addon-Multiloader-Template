@@ -2,7 +2,7 @@ package com.example.examplemod.mixin;
 
 import com.example.examplemod.platform.Services;
 import com.example.examplemod.power.HoverPower;
-import com.example.examplemod.registry.ExamplePowers;
+import com.example.examplemod.registry.ExamplePowerFactories;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +20,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(method = "baseTick", at = @At("HEAD"))
     private void originsmutliloader$hover(CallbackInfo ci) {
-        if (Services.PLATFORM.hasPower((LivingEntity)(Object)this, HoverPower.class, ExamplePowers.HOVER)) {
+        if (Services.PLATFORM.hasPower((LivingEntity)(Object)this, HoverPower.class, ExamplePowerFactories.HOVER)) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(1.0, 0.0, 1.0));
             this.fallDistance = 0.0F;
         }

@@ -3,12 +3,14 @@ package com.example.examplemod.platform;
 import com.example.examplemod.data.MultiloaderDataTypes;
 import com.example.examplemod.platform.services.IPlatformHelper;
 import com.example.examplemod.power.data.IPowerData;
-import com.example.examplemod.registry.PowersForge;
+import com.example.examplemod.registry.PowerFactoriesForge;
 import com.google.auto.service.AutoService;
 import io.github.apace100.apoli.power.Power;
+import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableDataType;
 import io.github.edwinmindcraft.apoli.api.component.IPowerContainer;
+import io.github.edwinmindcraft.apoli.fabric.FabricPowerConfiguration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.fml.ModList;
@@ -40,13 +42,13 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public <P extends Power> PowerFactory<P> registerPowerFactory(ResourceLocation id, IPowerData power) {
         PowerFactory<P> powerFactory = new PowerFactory<>(id, power.getSerializableData(), power.getPowerConstructorForge());
-        PowersForge.POWER_FACTORY_REGISTRY.register(id.getPath(), powerFactory::getWrapped);
+        PowerFactoriesForge.POWER_FACTORY_REGISTRY.register(id.getPath(), powerFactory::getWrapped);
         return powerFactory;
     }
 
     @Override
     public <P extends Power> List<P> getPowers(LivingEntity entity, Class<P> powerClass, PowerFactory<P> powerFactory) {
-        return IPowerContainer.getPowers(entity, powerFactory.getWrapped()).stream().map(configuredPowerHolder -> (P)configuredPowerHolder.get().getConfiguration()).toList();
+        return IPowerContainer.getPowers(entity, powerFactory.getWrapped()).stream().map(configuredPowerHolder -> ((FabricPowerConfiguration<P>)configuredPowerHolder.get().getConfiguration()).power().apply((PowerType<P>) configuredPowerHolder.get().getPowerType(), entity)).toList();
     }
 
     @Override

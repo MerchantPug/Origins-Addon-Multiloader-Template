@@ -1,10 +1,7 @@
 package com.example.examplemod.platform;
 
 import com.example.examplemod.platform.services.IPlatformHelper;
-import com.example.examplemod.power.data.IActionOnEquipPowerData;
 import com.example.examplemod.power.data.IPowerData;
-import com.example.examplemod.registry.PowersFabric;
-import com.example.examplemod.registry.services.RegistryObject;
 import com.google.auto.service.AutoService;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;

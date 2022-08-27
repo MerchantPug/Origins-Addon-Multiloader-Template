@@ -2,7 +2,7 @@ package com.example.examplemod.mixin;
 
 import com.example.examplemod.platform.Services;
 import com.example.examplemod.power.ActionOnEquipPower;
-import com.example.examplemod.registry.ExamplePowers;
+import com.example.examplemod.registry.ExamplePowerFactories;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Inventory;
@@ -33,12 +33,12 @@ public class InventoryMixin {
 
         if (defaultedList.equals(this.armor)) {
             EquipmentSlot equipmentSlot = EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR, slot);
-            Services.PLATFORM.getPowers(this.player, ActionOnEquipPower.class, ExamplePowers.ACTION_ON_EQUIP).forEach(power -> power.fireAction(equipmentSlot, stack));
+            Services.PLATFORM.getPowers(this.player, ActionOnEquipPower.class, ExamplePowerFactories.ACTION_ON_EQUIP).forEach(power -> power.fireAction(equipmentSlot, stack));
         }
 
         if (defaultedList.equals(this.offhand)) {
             EquipmentSlot equipmentSlot = EquipmentSlot.OFFHAND;
-            Services.PLATFORM.getPowers(this.player, ActionOnEquipPower.class, ExamplePowers.ACTION_ON_EQUIP).forEach(power -> power.fireAction(equipmentSlot, stack));
+            Services.PLATFORM.getPowers(this.player, ActionOnEquipPower.class, ExamplePowerFactories.ACTION_ON_EQUIP).forEach(power -> power.fireAction(equipmentSlot, stack));
         }
     }
 }
