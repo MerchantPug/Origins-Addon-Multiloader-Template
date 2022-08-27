@@ -1,4 +1,4 @@
-# MultiLoader Template
+# Origins Addon MultiLoader Template
 
 This project provides a Gradle project template that can compile Origins addons for both Forge and Fabric using a common sourceset. This project does not require any third party libraries or dependencies.
 
