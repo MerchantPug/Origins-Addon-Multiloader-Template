@@ -57,12 +57,57 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public SerializableDataType<?> getBiEntityConditionDataType() {
+        return MultiloaderDataTypes.BIENTITY_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBiomeConditionDataType() {
+        return MultiloaderDataTypes.BIOME_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBlockConditionDataType() {
+        return MultiloaderDataTypes.BLOCK_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getDamageConditionDataType() {
+        return MultiloaderDataTypes.DAMAGE_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getEntityConditionDataType() {
+        return MultiloaderDataTypes.ENTITY_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getFluidConditionDataType() {
+        return MultiloaderDataTypes.FLUID_CONDITION;
+    }
+
+    @Override
     public SerializableDataType<?> getItemConditionDataType() {
         return MultiloaderDataTypes.ITEM_CONDITION;
     }
 
     @Override
+    public SerializableDataType<?> getBiEntityActionDataType() {
+        return MultiloaderDataTypes.BIENTITY_ACTION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBlockActionDataType() {
+        return MultiloaderDataTypes.BLOCK_ACTION;
+    }
+
+    @Override
     public SerializableDataType<?> getEntityActionDataType() {
         return MultiloaderDataTypes.ENTITY_ACTION;
+    }
+
+    @Override
+    public SerializableDataType<?> getItemActionDataType() {
+        return MultiloaderDataTypes.ITEM_ACTION;
     }
 }

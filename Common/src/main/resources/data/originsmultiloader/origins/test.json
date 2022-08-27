@@ -1,9 +1,0 @@
-{
-  "powers": [
-    "originsmultiloader:hover",
-    "originsmultiloader:action_on_equip"
-  ],
-  "icon": "minecraft:emerald",
-  "order": 1,
-  "impact": 0
-}

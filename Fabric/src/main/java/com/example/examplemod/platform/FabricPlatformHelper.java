@@ -3,6 +3,7 @@ package com.example.examplemod.platform;
 import com.example.examplemod.platform.services.IPlatformHelper;
 import com.example.examplemod.power.data.IPowerData;
 import com.google.auto.service.AutoService;
+import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Power;
@@ -53,12 +54,57 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public SerializableDataType<?> getBiEntityConditionDataType() {
+        return ApoliDataTypes.BIENTITY_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBiomeConditionDataType() {
+        return ApoliDataTypes.BIOME_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBlockConditionDataType() {
+        return ApoliDataTypes.BLOCK_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getDamageConditionDataType() {
+        return ApoliDataTypes.DAMAGE_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getEntityConditionDataType() {
+        return ApoliDataTypes.ENTITY_CONDITION;
+    }
+
+    @Override
+    public SerializableDataType<?> getFluidConditionDataType() {
+        return ApoliDataTypes.FLUID_CONDITION;
+    }
+
+    @Override
     public SerializableDataType<?> getItemConditionDataType() {
         return ApoliDataTypes.ITEM_CONDITION;
     }
 
     @Override
+    public SerializableDataType<?> getBiEntityActionDataType() {
+        return ApoliDataTypes.BIENTITY_ACTION;
+    }
+
+    @Override
+    public SerializableDataType<?> getBlockActionDataType() {
+        return ApoliDataTypes.BLOCK_ACTION;
+    }
+
+    @Override
     public SerializableDataType<?> getEntityActionDataType() {
         return ApoliDataTypes.ENTITY_ACTION;
+    }
+
+    @Override
+    public SerializableDataType<?> getItemActionDataType() {
+        return ApoliDataTypes.ITEM_ACTION;
     }
 }

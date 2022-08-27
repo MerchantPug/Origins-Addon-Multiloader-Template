@@ -44,7 +44,25 @@ public interface IPlatformHelper {
 
     <P extends Power> boolean hasPower(LivingEntity entity, Class<P> powerClass, PowerFactory<P> powerFactory);
 
+    SerializableDataType<?> getBiEntityConditionDataType();
+
+    SerializableDataType<?> getBiomeConditionDataType();
+
+    SerializableDataType<?> getBlockConditionDataType();
+
+    SerializableDataType<?> getDamageConditionDataType();
+
+    SerializableDataType<?> getEntityConditionDataType();
+
+    SerializableDataType<?> getFluidConditionDataType();
+
     SerializableDataType<?> getItemConditionDataType();
 
+    SerializableDataType<?> getBiEntityActionDataType();
+
+    SerializableDataType<?> getBlockActionDataType();
+
     SerializableDataType<?> getEntityActionDataType();
+
+    SerializableDataType<?> getItemActionDataType();
 }
