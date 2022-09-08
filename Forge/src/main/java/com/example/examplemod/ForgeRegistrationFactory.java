@@ -18,6 +18,7 @@ import java.util.function.Supplier;
 
 @AutoService(RegistrationProvider.Factory.class)
 public class ForgeRegistrationFactory implements RegistrationProvider.Factory {
+    
     @Override
     public <T> RegistrationProvider<T> create(ResourceKey<? extends Registry<T>> resourceKey, String modId) {
         final var containerOpt = ModList.get().getModContainerById(modId);
@@ -34,6 +35,7 @@ public class ForgeRegistrationFactory implements RegistrationProvider.Factory {
     }
 
     private static class Provider<T> implements RegistrationProvider<T> {
+        
         private final String modId;
         private final DeferredRegister<T> registry;
 
@@ -84,5 +86,7 @@ public class ForgeRegistrationFactory implements RegistrationProvider.Factory {
         public Set<RegistryObject<T>> getEntries() {
             return entriesView;
         }
+        
     }
+    
 }

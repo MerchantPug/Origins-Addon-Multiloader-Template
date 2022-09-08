@@ -19,7 +19,7 @@
     "environment": "*",
     "entrypoints": {
       "main": [
-        "com.example.examplemod.ExampleMod"
+        "com.example.examplemod.ExampleModFabric"
       ]
     },
     "mixins": [

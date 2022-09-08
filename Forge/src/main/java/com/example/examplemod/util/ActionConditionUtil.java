@@ -15,91 +15,104 @@ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.material.FluidState;
 import org.apache.commons.lang3.mutable.MutableObject;
 import org.apache.commons.lang3.tuple.Triple;
+import org.jetbrains.annotations.Contract;
 
-import javax.annotation.Nullable;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class ActionConditionUtil {
-    @Nullable public static Predicate<Pair<Entity, Entity>> biEntityConditionPredicate(ConfiguredBiEntityCondition<?, ?> condition) {
+    
+    @Contract("null -> null")
+    public static Predicate<Pair<Entity, Entity>> biEntityConditionPredicate(ConfiguredBiEntityCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return (pair) -> condition.check(pair.getFirst(), pair.getSecond());
     }
 
-    @Nullable public static Predicate<Holder<Biome>> biomeConditionPredicate(ConfiguredBiomeCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Predicate<Holder<Biome>> biomeConditionPredicate(ConfiguredBiomeCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return condition::check;
     }
 
-    @Nullable public static Consumer<BlockInWorld> blockCondition(ConfiguredBlockCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Consumer<BlockInWorld> blockCondition(ConfiguredBlockCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return (block) -> condition.check(block.getLevel(), block.getPos(), block::getState);
     }
 
-    @Nullable public static Predicate<Pair<DamageSource, Float>> damageConditionPredicate(ConfiguredDamageCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Predicate<Pair<DamageSource, Float>> damageConditionPredicate(ConfiguredDamageCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return (pair) -> condition.check(pair.getFirst(), pair.getSecond());
     }
 
-    @Nullable public static Predicate<Entity> entityConditionPredicate(ConfiguredEntityCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Predicate<Entity> entityConditionPredicate(ConfiguredEntityCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return condition::check;
     }
 
-    @Nullable public static Predicate<FluidState> fluidConditionPredicate(ConfiguredFluidCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Predicate<FluidState> fluidConditionPredicate(ConfiguredFluidCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return condition::check;
     }
 
-    @Nullable public static Predicate<ItemStack> itemConditionPredicate(ConfiguredItemCondition<?, ?> condition) {
+    @Contract("null -> null")
+    public static Predicate<ItemStack> itemConditionPredicate(ConfiguredItemCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
         return (itemStack) -> {
-            if (((ItemStackLevelAccess)(Object)itemStack).yourmodid$getLevel() == null) {
+            if (((ItemStackLevelAccess)(Object)itemStack).getLevel() == null) {
                 return false;
             }
-            return condition.check(((ItemStackLevelAccess)(Object)itemStack).yourmodid$getLevel(), itemStack);
+            return condition.check(((ItemStackLevelAccess)(Object)itemStack).getLevel(), itemStack);
         };
     }
 
-    @Nullable public static Consumer<Pair<Entity, Entity>> biEntityActionConsumer(ConfiguredBiEntityAction<?, ?> action) {
+    @Contract("null -> null")
+    public static Consumer<Pair<Entity, Entity>> biEntityActionConsumer(ConfiguredBiEntityAction<?, ?> action) {
         if (action == null) {
             return null;
         }
         return (pair) -> action.execute(pair.getFirst(), pair.getSecond());
     }
 
-    @Nullable public static Consumer<Triple<Level, BlockPos, Direction>> blockActionConsumer(ConfiguredBlockAction<?, ?> action) {
+    @Contract("null -> null")
+    public static Consumer<Triple<Level, BlockPos, Direction>> blockActionConsumer(ConfiguredBlockAction<?, ?> action) {
         if (action == null) {
             return null;
         }
         return (triple) -> action.execute(triple.getLeft(), triple.getMiddle(), triple.getRight());
     }
 
-    @Nullable public static Consumer<Entity> entityActionConsumer(ConfiguredEntityAction<?, ?> action) {
+    @Contract("null -> null")
+    public static Consumer<Entity> entityActionConsumer(ConfiguredEntityAction<?, ?> action) {
         if (action == null) {
             return null;
         }
         return action::execute;
     }
 
-    @Nullable public static Consumer<ItemStack> itemActionConsumer(ConfiguredItemAction<?, ?> action) {
+    @Contract("null -> null")
+    public static Consumer<ItemStack> itemActionConsumer(ConfiguredItemAction<?, ?> action) {
         if (action == null) {
             return null;
         }
-        return (stack) -> action.execute(((ItemStackLevelAccess)(Object)stack).yourmodid$getLevel(), new MutableObject<>(stack));
+        return (stack) -> action.execute(((ItemStackLevelAccess)(Object)stack).getLevel(), new MutableObject<>(stack));
     }
+    
 }

@@ -11,6 +11,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public interface IPowerData<P extends Power> {
+    
     default SerializableData getSerializableData() {
         return new SerializableData();
     }
@@ -27,4 +28,5 @@ public interface IPowerData<P extends Power> {
         return new PowerFactory<>(resourceLocation,
                 this.getSerializableData(), this::getPowerConstructor).allowCondition();
     }
+    
 }

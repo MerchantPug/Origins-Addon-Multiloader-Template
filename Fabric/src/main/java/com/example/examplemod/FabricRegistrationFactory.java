@@ -92,4 +92,5 @@ public class FabricRegistrationFactory implements RegistrationProvider.Factory {
             return modId;
         }
     }
+    
 }

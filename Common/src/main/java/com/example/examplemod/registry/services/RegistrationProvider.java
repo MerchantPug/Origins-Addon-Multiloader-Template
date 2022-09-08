@@ -109,5 +109,7 @@ public interface RegistrationProvider<T> {
         default <T> RegistrationProvider<T> create(Registry<T> registry, String modId) {
             return create(registry.key(), modId);
         }
+        
     }
+    
 }
