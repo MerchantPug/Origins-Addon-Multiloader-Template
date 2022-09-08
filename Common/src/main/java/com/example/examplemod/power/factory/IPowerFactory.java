@@ -1,4 +1,4 @@
-package com.example.examplemod.power.data;
+package com.example.examplemod.power.factory;
 
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
@@ -10,7 +10,8 @@ import net.minecraft.world.entity.LivingEntity;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public interface IPowerData<P extends Power> {
+public interface IPowerFactory<P extends Power> {
+    
     default SerializableData getSerializableData() {
         return new SerializableData();
     }
@@ -27,4 +28,5 @@ public interface IPowerData<P extends Power> {
         return new PowerFactory<>(resourceLocation,
                 this.getSerializableData(), this::getPowerConstructor).allowCondition();
     }
+    
 }
