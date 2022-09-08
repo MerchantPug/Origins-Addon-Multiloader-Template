@@ -1,13 +1,13 @@
-package com.example.examplemod.action;
+package com.example.examplemod.condition;
 
 import io.github.apace100.calio.data.SerializableData;
 
-public interface IActionData<T> {
+public interface IConditionFactory<T> {
     
     default SerializableData getSerializableData() {
         return new SerializableData();
     }
     
-    void execute(SerializableData.Instance data, T instance);
+    boolean check(SerializableData.Instance data, T instance);
     
 }
