@@ -6,6 +6,7 @@ import com.example.examplemod.condition.IConditionFactory;
 import com.example.examplemod.platform.services.IPlatformHelper;
 import com.example.examplemod.power.factory.IPowerFactory;
 import com.google.auto.service.AutoService;
+import com.mojang.datafixers.util.Pair;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.Power;
@@ -13,6 +14,7 @@ import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.power.factory.condition.ConditionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
+import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -92,8 +94,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getBiEntityConditionDataType() {
         return ApoliDataTypes.BIENTITY_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<Pair<Entity, Entity>> getPredicateFromBiEntityConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerBiomeCondition(String name, IConditionFactory<Holder<Biome>> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -109,8 +116,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getBiomeConditionDataType() {
         return ApoliDataTypes.BIOME_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<Holder<Biome>> getPredicateFromBiomeConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerBlockCondition(String name, IConditionFactory<BlockInWorld> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -126,8 +138,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getBlockConditionDataType() {
         return ApoliDataTypes.BLOCK_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<BlockInWorld> getPredicateFromBlockConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerDamageCondition(String name, IConditionFactory<Tuple<DamageSource, Float>> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -143,8 +160,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getDamageConditionDataType() {
         return ApoliDataTypes.DAMAGE_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<Pair<DamageSource, Float>> getPredicateFromDamageConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerEntityCondition(String name, IConditionFactory<Entity> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -160,8 +182,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getEntityConditionDataType() {
         return ApoliDataTypes.ENTITY_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<Entity> getPredicateFromEntityConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerFluidCondition(String name, IConditionFactory<FluidState> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -177,8 +204,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getFluidConditionDataType() {
         return ApoliDataTypes.FLUID_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<FluidState> getPredicateFromFluidConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerItemCondition(String name, IConditionFactory<ItemStack> condition) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -194,8 +226,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getItemConditionDataType() {
         return ApoliDataTypes.ITEM_CONDITION;
     }
-    
-    
+
+    @Override
+    public Predicate<ItemStack> getPredicateFromItemConditionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerBiEntityActionFactory(String name, IActionFactory<Tuple<Entity, Entity>> action) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -211,8 +248,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getBiEntityActionDataType() {
         return ApoliDataTypes.BIENTITY_ACTION;
     }
-    
-    
+
+    @Override
+    public Consumer<Pair<Entity, Entity>> getConsumerFromBiEntityActionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerBlockActionFactory(String name, IActionFactory<Triple<Level, BlockPos, Direction>> action) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -228,8 +270,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getBlockActionDataType() {
         return ApoliDataTypes.BLOCK_ACTION;
     }
-    
-    
+
+    @Override
+    public Consumer<Triple<Level, BlockPos, Direction>> getConsumerFromBlockActionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerEntityActionFactory(String name, IActionFactory<Entity> action) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -245,8 +292,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getEntityActionDataType() {
         return ApoliDataTypes.ENTITY_ACTION;
     }
-    
-    
+
+    @Override
+    public Consumer<Entity> getConsumerFromEntityActionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
+
     @Override
     public void registerItemActionFactory(String name, IActionFactory<Tuple<Level, Mutable<ItemStack>>> action) {
         ResourceLocation id = ExampleMod.asResource(name);
@@ -265,5 +317,10 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public SerializableDataType<?> getItemActionDataType() {
         return ApoliDataTypes.ITEM_ACTION;
     }
-    
+
+    @Override
+    public Consumer<ItemStack> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName) {
+        return data.get(fieldName);
+    }
+
 }
