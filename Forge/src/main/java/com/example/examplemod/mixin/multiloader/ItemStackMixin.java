@@ -21,7 +21,9 @@ public class ItemStackMixin {
 
     @Inject(method = "inventoryTick", at = @At("HEAD"))
     private void originsmultiloader$getLevelFrOmInventory(Level level, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-        yourmodid$level = level;
+        if (yourmodid$getLevel() == null) {
+            yourmodid$setLevel(level);
+        }
     }
     
     public Level yourmodid$getLevel() {
