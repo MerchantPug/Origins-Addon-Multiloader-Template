@@ -319,7 +319,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public Consumer<ItemStack> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName) {
+    public Consumer<Mutable<ItemStack>> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName) {
         return data.get(fieldName);
     }
 

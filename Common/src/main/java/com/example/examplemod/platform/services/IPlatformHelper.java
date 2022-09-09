@@ -158,6 +158,6 @@ public interface IPlatformHelper {
     
     SerializableDataType<?> getItemActionDataType();
 
-    Consumer<ItemStack> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName);
+    Consumer<Mutable<ItemStack>> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName);
 
 }

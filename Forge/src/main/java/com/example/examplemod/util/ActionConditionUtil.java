@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.material.FluidState;
-import org.apache.commons.lang3.mutable.MutableObject;
+import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.Contract;
 
@@ -108,11 +108,11 @@ public class ActionConditionUtil {
     }
 
     @Contract("null -> null")
-    public static Consumer<ItemStack> itemActionConsumer(ConfiguredItemAction<?, ?> action) {
+    public static Consumer<Mutable<ItemStack>> itemActionConsumer(ConfiguredItemAction<?, ?> action) {
         if (action == null) {
             return null;
         }
-        return (stack) -> action.execute(((ItemStackLevelAccess)(Object)stack).getLevel(), new MutableObject<>(stack));
+        return (stack) -> action.execute(((ItemStackLevelAccess)(Object)stack).getLevel(), stack);
     }
     
 }

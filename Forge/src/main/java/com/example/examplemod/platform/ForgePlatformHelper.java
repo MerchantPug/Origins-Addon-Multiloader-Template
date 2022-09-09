@@ -10,7 +10,6 @@ import com.example.examplemod.power.factory.IPowerFactory;
 import com.example.examplemod.registry.ExampleModRegisters;
 import com.example.examplemod.util.ActionConditionUtil;
 import com.google.auto.service.AutoService;
-import com.mojang.datafixers.util.Pair;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
@@ -307,7 +306,7 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public Consumer<ItemStack> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName) {
+    public Consumer<Mutable<ItemStack>> getConsumerFromItemActionDataInstance(SerializableData.Instance data, String fieldName) {
         return ActionConditionUtil.itemActionConsumer(data.get(fieldName));
     }
 
