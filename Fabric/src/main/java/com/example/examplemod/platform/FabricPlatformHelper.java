@@ -96,7 +96,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public Predicate<Pair<Entity, Entity>> getPredicateFromBiEntityConditionDataInstance(SerializableData.Instance data, String fieldName) {
+    public Predicate<Tuple<Entity, Entity>> getPredicateFromBiEntityConditionDataInstance(SerializableData.Instance data, String fieldName) {
         return data.get(fieldName);
     }
 
@@ -162,7 +162,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public Predicate<Pair<DamageSource, Float>> getPredicateFromDamageConditionDataInstance(SerializableData.Instance data, String fieldName) {
+    public Predicate<Tuple<DamageSource, Float>> getPredicateFromDamageConditionDataInstance(SerializableData.Instance data, String fieldName) {
         return data.get(fieldName);
     }
 
@@ -250,7 +250,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public Consumer<Pair<Entity, Entity>> getConsumerFromBiEntityActionDataInstance(SerializableData.Instance data, String fieldName) {
+    public Consumer<Tuple<Entity, Entity>> getConsumerFromBiEntityActionDataInstance(SerializableData.Instance data, String fieldName) {
         return data.get(fieldName);
     }
 
