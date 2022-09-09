@@ -1,11 +1,11 @@
 package com.example.examplemod.util;
 
 import com.example.examplemod.access.ItemStackLevelAccess;
-import com.mojang.datafixers.util.Pair;
 import io.github.edwinmindcraft.apoli.api.power.configuration.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -23,11 +23,11 @@ import java.util.function.Predicate;
 public class ActionConditionUtil {
     
     @Contract("null -> null")
-    public static Predicate<Pair<Entity, Entity>> biEntityConditionPredicate(ConfiguredBiEntityCondition<?, ?> condition) {
+    public static Predicate<Tuple<Entity, Entity>> biEntityConditionPredicate(ConfiguredBiEntityCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
-        return (pair) -> condition.check(pair.getFirst(), pair.getSecond());
+        return (pair) -> condition.check(pair.getA(), pair.getB());
     }
 
     @Contract("null -> null")
@@ -47,11 +47,11 @@ public class ActionConditionUtil {
     }
 
     @Contract("null -> null")
-    public static Predicate<Pair<DamageSource, Float>> damageConditionPredicate(ConfiguredDamageCondition<?, ?> condition) {
+    public static Predicate<Tuple<DamageSource, Float>> damageConditionPredicate(ConfiguredDamageCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
-        return (pair) -> condition.check(pair.getFirst(), pair.getSecond());
+        return (pair) -> condition.check(pair.getA(), pair.getB());
     }
 
     @Contract("null -> null")
@@ -84,11 +84,11 @@ public class ActionConditionUtil {
     }
 
     @Contract("null -> null")
-    public static Consumer<Pair<Entity, Entity>> biEntityActionConsumer(ConfiguredBiEntityAction<?, ?> action) {
+    public static Consumer<Tuple<Entity, Entity>> biEntityActionConsumer(ConfiguredBiEntityAction<?, ?> action) {
         if (action == null) {
             return null;
         }
-        return (pair) -> action.execute(pair.getFirst(), pair.getSecond());
+        return (pair) -> action.execute(pair.getA(), pair.getB());
     }
 
     @Contract("null -> null")

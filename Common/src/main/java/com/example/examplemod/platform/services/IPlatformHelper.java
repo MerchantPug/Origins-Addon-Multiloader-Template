@@ -3,7 +3,6 @@ package com.example.examplemod.platform.services;
 import com.example.examplemod.action.IActionFactory;
 import com.example.examplemod.condition.IConditionFactory;
 import com.example.examplemod.power.factory.IPowerFactory;
-import com.mojang.datafixers.util.Pair;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -69,7 +68,7 @@ public interface IPlatformHelper {
     
     SerializableDataType<?> getBiEntityConditionDataType();
 
-    Predicate<Pair<Entity, Entity>> getPredicateFromBiEntityConditionDataInstance(SerializableData.Instance data, String fieldName);
+    Predicate<Tuple<Entity, Entity>> getPredicateFromBiEntityConditionDataInstance(SerializableData.Instance data, String fieldName);
 
 
     void registerBiomeCondition(String name, IConditionFactory<Holder<Biome>> condition);
@@ -96,7 +95,7 @@ public interface IPlatformHelper {
     
     SerializableDataType<?> getDamageConditionDataType();
 
-    Predicate<Pair<DamageSource, Float>> getPredicateFromDamageConditionDataInstance(SerializableData.Instance data, String fieldName);
+    Predicate<Tuple<DamageSource, Float>> getPredicateFromDamageConditionDataInstance(SerializableData.Instance data, String fieldName);
 
 
     void registerEntityCondition(String name, IConditionFactory<Entity> condition);
@@ -132,7 +131,7 @@ public interface IPlatformHelper {
     
     SerializableDataType<?> getBiEntityActionDataType();
 
-    Consumer<Pair<Entity, Entity>> getConsumerFromBiEntityActionDataInstance(SerializableData.Instance data, String fieldName);
+    Consumer<Tuple<Entity, Entity>> getConsumerFromBiEntityActionDataInstance(SerializableData.Instance data, String fieldName);
 
 
     void registerBlockActionFactory(String name, IActionFactory<Triple<Level, BlockPos, Direction>> action);
