@@ -39,7 +39,7 @@ public class ActionConditionUtil {
     }
 
     @Contract("null -> null")
-    public static Consumer<BlockInWorld> blockCondition(ConfiguredBlockCondition<?, ?> condition) {
+    public static Predicate<BlockInWorld> blockConditionPredicate(ConfiguredBlockCondition<?, ?> condition) {
         if (condition == null) {
             return null;
         }
