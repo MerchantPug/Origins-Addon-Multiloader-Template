@@ -2,9 +2,13 @@ package com.example.examplemod.data;
 
 import io.github.apace100.calio.data.SerializableDataType;
 import io.github.edwinmindcraft.apoli.api.power.configuration.*;
+import net.minecraft.core.Holder;
 import net.minecraftforge.common.util.Lazy;
 
 public class ApoliForgeDataTypes {
+
+    public static final Lazy<SerializableDataType<Holder<ConfiguredPower<?, ?>>>> POWER_TYPE = Lazy.of(() -> new SerializableDataType<>(castClass(Holder.class), ConfiguredPower.CODEC_SET.holderRef()));
+
     public static final Lazy<SerializableDataType<ConfiguredBiEntityCondition<?, ?>>> BIENTITY_CONDITION = Lazy.of(() -> new SerializableDataType<>(ApoliForgeDataTypes.castClass(ConfiguredBiEntityCondition.class), ConfiguredBiEntityCondition.CODEC));
     public static final Lazy<SerializableDataType<ConfiguredBiomeCondition<?, ?>>> BIOME_CONDITION = Lazy.of(() -> new SerializableDataType<>(ApoliForgeDataTypes.castClass(ConfiguredBiomeCondition.class), ConfiguredBiomeCondition.CODEC));
     public static final Lazy<SerializableDataType<ConfiguredBlockCondition<?, ?>>> BLOCK_CONDITION = Lazy.of(() -> new SerializableDataType<>(ApoliForgeDataTypes.castClass(ConfiguredBlockCondition.class), ConfiguredBlockCondition.CODEC));

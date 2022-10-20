@@ -7,7 +7,7 @@ import io.github.edwinmindcraft.apoli.api.registry.ApoliRegistries;
 
 public class ExampleModRegisters {
     
-    public static final RegistrationProvider<PowerFactory<?>> POWERS = RegistrationProvider.get(ApoliRegistries.POWER_FACTORY_KEY, ExampleMod.MOD_ID);
+    public static final RegistrationProvider<PowerFactory<?>> POWER_FACTORIES = RegistrationProvider.get(ApoliRegistries.POWER_FACTORY_KEY, ExampleMod.MOD_ID);
     
     public static final RegistrationProvider<BiEntityCondition<?>> BIENTITY_CONDITIONS = RegistrationProvider.get(ApoliRegistries.BIENTITY_CONDITION_KEY, ExampleMod.MOD_ID);
     

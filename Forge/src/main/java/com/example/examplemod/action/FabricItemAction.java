@@ -15,14 +15,14 @@ import java.util.function.BiConsumer;
  */
 @ParametersAreNonnullByDefault
 public class FabricItemAction extends ItemAction<FabricActionConfiguration<Tuple<Level, Mutable<ItemStack>>>> {
-    
+
     public FabricItemAction(SerializableData data, BiConsumer<SerializableData.Instance, Tuple<Level, Mutable<ItemStack>>> action) {
         super(FabricActionConfiguration.codec(data, action));
     }
-    
+
     @Override
     public void execute(FabricActionConfiguration<Tuple<Level, Mutable<ItemStack>>> config, Level level, Mutable<ItemStack> mutable) {
         config.action().accept(new Tuple<>(level, mutable));
     }
-    
+
 }

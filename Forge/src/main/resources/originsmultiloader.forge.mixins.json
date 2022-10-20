@@ -4,7 +4,8 @@
   "package": "com.example.examplemod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "multiloader.ItemStackMixin"
+    "forge.FabricPowerFactoryAccessor",
+    "forge.ItemStackMixin"
   ],
   "injectors": {
     "defaultRequire": 1

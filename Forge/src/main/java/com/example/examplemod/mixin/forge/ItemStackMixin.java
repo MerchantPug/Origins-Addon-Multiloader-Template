@@ -1,4 +1,4 @@
-package com.example.examplemod.mixin.multiloader;
+package com.example.examplemod.mixin.forge;
 
 import com.example.examplemod.access.ItemStackLevelAccess;
 import net.minecraft.world.entity.Entity;
@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
  * Replace all "yourmodid" in this class to your modid.
+ * This is to ensure compatiblity with other mods that have the same system.
  */
 @Mixin(ItemStack.class)
 @Implements(@Interface(iface = ItemStackLevelAccess.class, prefix = "yourmodid$"))
@@ -25,13 +26,13 @@ public class ItemStackMixin {
             yourmodid$setLevel(level);
         }
     }
-    
+
     public Level yourmodid$getLevel() {
         return yourmodid$level;
     }
-    
+
     public void yourmodid$setLevel(Level value) {
         yourmodid$level = value;
     }
-    
+
 }
