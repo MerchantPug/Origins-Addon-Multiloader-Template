@@ -28,7 +28,7 @@ While it is possible to use this template in Eclipse it is not recommended. Duri
 - Create a new 'libs' folder in the base directory. Put the Calio Forge and Apoli Forge JARs in this folder, this is for use in the build scripts. You can get these two files from [this page](https://github.com/EdwinMindcraft/origins-architectury/releases).
 - Replace the mentions of `yourmodid` in `ItemStackLevelAccess` and any other named classes with your own modid, this is so you don't have mixin conflicts between you and anybody else who is using this template.
 
-### Differences to Origins Fabric's Power System
+### Differences to Origins Fabric's Systems
 - Item Actions use `Mutable<ItemStack>` as opposed to an `ItemStack`. `Mutable<ItemStack>`s are used as it's used by Apoli Forge to change an ItemStack's item instead of mixins like in Origins Fabric.
 
 ## Development Guide

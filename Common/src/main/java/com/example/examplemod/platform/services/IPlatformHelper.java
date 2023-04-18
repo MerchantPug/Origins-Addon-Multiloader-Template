@@ -31,35 +31,35 @@ public interface IPlatformHelper {
     boolean isDevelopmentEnvironment();
 
     /**
-     * Get the supported modifier type by platform due to the fact that new Modifier hasn't implemented on Forge's end.
+     * Get the supported modifier type by platform due to the fact that new Modifier is different on Forge's end.
      * @return SerializableDataType of Modifier(on Fabric) or AttributeModifier(on Forge).
      */
     SerializableDataType<?> getModifierDataType();
 
     /**
-     * Get the supported modifier type by platform due to the fact that new Modifier hasn't implemented on Forge's end.
-     * @return SerializableDataType of List of Modifier(on Fabric) or AttributeModifier(on Forge).
+     * Get the supported modifier type by platform due to the fact that new Modifier is different on Forge's end.
+     * @return SerializableDataType of List of Modifier(on Fabric) or ConfiguredModifier(on Forge).
      */
     SerializableDataType<?> getModifiersDataType();
 
     /**
      * Apply generic modifier objects to value for a certain living entity.
      * @param living The living entity involved in the modification.
-     * @param modifiers Generic modifiers, could be Modifier/Attribute Modifiers.
+     * @param modifiers Generic modifiers.
      * @param value The value to be modified.
      * @return The modified value.
      */
     double applyModifiers(LivingEntity living, List<?> modifiers, double value);
 
     /**
-     * Get the modified reach distance for the entity, Fabric uses REA and Forge use its own attribute.
+     * Get the modified reach distance for the entity, Fabric uses REA and Forge uses its own attribute.
      * @param entity The entity to check.
      * @return The reach distance of the entity.
      */
     double getReachDistance(Entity entity);
 
     /**
-     * Get the modified attack range for the entity, Fabric uses REA and Forge use its own attribute.
+     * Get the modified attack range for the entity, Fabric uses REA and Forge uses its own attribute.
      * @param entity The entity to check.
      * @return The attack range of the entity.
      */
