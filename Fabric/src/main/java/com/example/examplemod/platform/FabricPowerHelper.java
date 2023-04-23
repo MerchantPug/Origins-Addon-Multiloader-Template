@@ -48,12 +48,14 @@ public class FabricPowerHelper implements IPowerHelper<PowerTypeReference> {
 
     @Override
     public <P> List<P> getPowers(LivingEntity entity, SpecialPowerFactory<P> factory) {
-        List<Power> powers = PowerHolderComponent.KEY.get(entity).getPowers();
-        Class<P> cls = factory.getPowerClass();
         List<P> list = new LinkedList<>();
-        for (Power power : powers) {
-            if (cls.isAssignableFrom(power.getClass()) && power.isActive()) {
-                list.add((P) power);
+        if (PowerHolderComponent.KEY.isProvidedBy(entity)) {
+            List<Power> powers = PowerHolderComponent.KEY.get(entity).getPowers();
+            Class<P> cls = factory.getPowerClass();
+            for(Power power : powers) {
+                if(cls.isAssignableFrom(power.getClass()) && power.isActive()) {
+                    list.add((P)power);
+                }
             }
         }
         return list;
