@@ -103,6 +103,8 @@ dependencies {
     implementation fg.deobf("curse.maven:origins-forge-474438:${origins_forge_fileid}")
     implementation fg.deobf("top.theillusivec4.caelus:caelus-forge:${minecraft_version}-${caelus_version}")
 
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     compileOnly group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
     annotationProcessor group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
 
