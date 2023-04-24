@@ -70,7 +70,7 @@ public class ForgePowerHelper implements IPowerHelper<Holder<ConfiguredPower<?, 
 
     @Override
     public SerializableDataType<Holder<ConfiguredPower<?, ?>>> getPowerTypeDataType() {
-        return ApoliForgeDataTypes.POWER_TYPE.get();
+        return ApoliForgeDataTypes.POWER_TYPE;
     }
 
     @Override
