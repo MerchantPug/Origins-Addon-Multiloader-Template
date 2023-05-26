@@ -18,7 +18,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.material.FluidState;
-import oshi.util.tuples.Pair;
 
 import javax.annotation.Nullable;
 import java.util.function.Predicate;
