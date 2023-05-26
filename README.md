@@ -22,10 +22,9 @@ While it is possible to use this template in Eclipse it is not recommended. Duri
 ## Origins Specifics
 
 ### General
-- Origins Addon Multiloader Template uses Origins Fabric's systems as Origins Forge has compatibility layer for Origins Fabric's Power Factories. This means you'll be using Calio Fabric's SerializableDataType system as opposed to Codecs.
+- Origins Addon Multiloader Template uses Origins Fabric's systems as Origins Forge has a compatibility layer for Origins Fabric's Power Factories. This means you'll be using Calio Fabric's SerializableDataType system as opposed to Codecs.
 
 ### Setup
-- Create a new 'libs' folder in the base directory. Put the Calio Forge and Apoli Forge JARs in this folder, this is for use in the build scripts. You can get these two files from [this page](https://github.com/EdwinMindcraft/origins-architectury/releases).
 - Replace the mentions of `yourmodid` in `ItemStackLevelAccess` and any other named classes with your own modid, this is so you don't have mixin conflicts between you and anybody else who is using this template.
 
 ### Differences to Origins Fabric's Systems
@@ -39,7 +38,7 @@ Loader specific projects such as the Forge and Fabric project are used to load t
 Origins Multiloader's Common module references Origins Forge, this is because it has a compatibility layer for Origins Fabric's code.
 
 ## Special Thanks
-- Darkhax and Jared - The developers of the Multiloader Template that this is based on.
+- Darkhax and Jared - The developers of the MultiLoader Template that this is based on.
 - Apace100 - The developer of Origins Fabric. 😎
 - EdwinMindcraft - The developer of Origins Forge especially for maintaining a compatibility layer with Origins Fabric making this whole project possible.
 - LimonBlaze - Basically rewriting the entire project from what it originally was. If there's anybody to thank, it's you.
