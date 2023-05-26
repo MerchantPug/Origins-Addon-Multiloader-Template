@@ -32,7 +32,7 @@ public interface IPlatformHelper {
 
     /**
      * Get the supported modifier type by platform due to the fact that new Modifier is different on Forge's end.
-     * @return SerializableDataType of Modifier(on Fabric) or AttributeModifier(on Forge).
+     * @return SerializableDataType of Modifier(on Fabric) or ConfiguredModifier(on Forge).
      */
     SerializableDataType<?> getModifierDataType();
 
