@@ -46,9 +46,13 @@ dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
     compileOnly group: 'org.ow2.asm', name: 'asm-tree', version: '9.4'
 
+    // NOTE: Only use content that can be found in Origins Fabric and Origins Forge.
     compileOnly "com.github.MerchantPug.origins-forge:calio-forge:${origins_forge_version}"
     compileOnly "com.github.MerchantPug.origins-forge:apoli-forge:${origins_forge_version}"
     compileOnly "com.github.MerchantPug.origins-forge:origins-forge:${origins_forge_version}"
+    compileOnly("com.github.EdwinMindcraft.AdditionalEntityAttributes:Common:${aea_forge_version}")
+
+    // NOTE: Do not use classes from Caelus in Common.
     compileOnly "top.theillusivec4.caelus:caelus-forge:${minecraft_version}-${caelus_version}"
 
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
