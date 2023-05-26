@@ -25,7 +25,7 @@ While it is possible to use this template in Eclipse it is not recommended. Duri
 - Origins Addon Multiloader Template uses Origins Fabric's systems as Origins Forge has a compatibility layer for Origins Fabric's Power Factories. This means you'll be using Calio Fabric's SerializableDataType system as opposed to Codecs.
 
 ### Setup
-- Replace the mentions of `yourmodid` in `ItemStackLevelAccess` and any other named classes with your own modid, this is so you don't have mixin conflicts between you and anybody else who is using this template.
+- Replace the mentions of `yourmodid`, `examplemod` and any other named classes with your own modid, this is so you don't have mixin conflicts between you and anybody else who is using this template.
 
 ### Differences to Origins Fabric's Systems
 - Item Actions use `Mutable<ItemStack>` as opposed to an `ItemStack`. `Mutable<ItemStack>`s are used as it's used by Apoli Forge to change an ItemStack's item instead of mixins like in Origins Fabric.
