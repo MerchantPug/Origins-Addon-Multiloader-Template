@@ -1,6 +1,6 @@
 package com.example.examplemod.platform;
 
-import com.example.examplemod.access.ItemStackLevelAccess;
+import com.example.examplemod.capability.ItemStackLevelProviderCapability;
 import com.example.examplemod.condition.*;
 import com.example.examplemod.data.ApoliForgeDataTypes;
 import com.example.examplemod.platform.services.IConditionHelper;
@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import javax.annotation.Nullable;
 import java.util.function.Predicate;
@@ -188,7 +189,7 @@ public class ForgeConditionHelper implements IConditionHelper {
 
     @Override
     public boolean checkItem(SerializableData.Instance data, String fieldName, ItemStack stack) {
-        return !data.isPresent(fieldName) || ((ConfiguredItemCondition<?, ?>) data.get(fieldName)).check(((ItemStackLevelAccess) (Object) stack).getLevel(), stack);
+        return !data.isPresent(fieldName) || ((ConfiguredItemCondition<?, ?>) data.get(fieldName)).check(stack.getCapability(ItemStackLevelProviderCapability.INSTANCE).map(ItemStackLevelProviderCapability::getLevel).orElseThrow(), stack);
     }
 
     @Override
@@ -197,7 +198,7 @@ public class ForgeConditionHelper implements IConditionHelper {
         if (!data.isPresent(fieldName)) {
             return null;
         }
-        return item -> ((ConfiguredItemCondition<?, ?>) data.get(fieldName)).check(((ItemStackLevelAccess) (Object) item).getLevel(), item);
+        return stack -> ((ConfiguredItemCondition<?, ?>) data.get(fieldName)).check(stack.getCapability(ItemStackLevelProviderCapability.INSTANCE).map(ItemStackLevelProviderCapability::getLevel).orElseThrow(), stack);
     }
 
 }
