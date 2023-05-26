@@ -29,6 +29,7 @@ While it is possible to use this template in Eclipse it is not recommended. Duri
 
 ### Differences to Origins Fabric's Systems
 - Item Actions use `Mutable<ItemStack>` as opposed to an `ItemStack`. `Mutable<ItemStack>`s are used as it's used by Apoli Forge to change an ItemStack's item instead of mixins like in Origins Fabric.
+- Item Conditions additionally take in a `Level` parameter or are a `Predicate<Pair<Level, ItemStack>` due to Origins Forge requiring it, this field isn't used by Origins Fabric item conditions. 
 
 ## Development Guide
 When using this template the majority of your mod is developed in the Common project. The Common project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The Common project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the Forge or Fabric project.

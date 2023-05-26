@@ -179,14 +179,17 @@ public class FabricConditionHelper implements IConditionHelper {
     }
     
     @Override
-    public boolean checkItem(SerializableData.Instance data, String fieldName, ItemStack stack) {
+    public boolean checkItem(SerializableData.Instance data, String fieldName, Level level, ItemStack stack) {
         return !data.isPresent(fieldName) || ((Predicate<ItemStack>)data.get(fieldName)).test(stack);
     }
     
     @Override
     @Nullable
-    public Predicate<ItemStack> itemPredicate(SerializableData.Instance data, String fieldName) {
-        return data.get(fieldName);
+    public Predicate<Tuple<Level, ItemStack>> itemPredicate(SerializableData.Instance data, String fieldName) {
+        if (!data.isPresent(fieldName)) {
+            return null;
+        }
+        return levelAndStack -> ((Predicate<ItemStack>)data.get(fieldName)).test(levelAndStack.getB());
     }
     
 }

@@ -83,9 +83,9 @@ public interface IConditionHelper {
     
     void registerItem(String name, IConditionFactory<ItemStack> condition);
     
-    boolean checkItem(SerializableData.Instance data, String fieldName, ItemStack stack);
+    boolean checkItem(SerializableData.Instance data, String fieldName, Level level, ItemStack stack);
 
     @Nullable
-    Predicate<ItemStack> itemPredicate(SerializableData.Instance data, String fieldName);
+    Predicate<Tuple<Level, ItemStack>> itemPredicate(SerializableData.Instance data, String fieldName);
     
 }

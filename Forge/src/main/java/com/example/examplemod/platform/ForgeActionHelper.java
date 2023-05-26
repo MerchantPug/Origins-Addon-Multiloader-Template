@@ -1,7 +1,6 @@
 package com.example.examplemod.platform;
 
 import com.example.examplemod.action.*;
-import com.example.examplemod.capability.ItemStackLevelProviderCapability;
 import com.example.examplemod.data.ApoliForgeDataTypes;
 import com.example.examplemod.platform.services.IActionHelper;
 import com.example.examplemod.registry.ExampleModRegisters;
@@ -128,7 +127,6 @@ public class ForgeActionHelper implements IActionHelper {
         return (levelAndStack) -> {
             Level level = levelAndStack.getA();
             Mutable<ItemStack> stack = levelAndStack.getB();
-            if (level == null) level = stack.getValue().getCapability(ItemStackLevelProviderCapability.INSTANCE).map(ItemStackLevelProviderCapability::getLevel).orElseThrow();
             action.execute(level, stack);
         };
     }
